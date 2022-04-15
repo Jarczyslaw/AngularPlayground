@@ -1,0 +1,18 @@
+<h1>Templates</h1>
+
+<button (click)="addDogs()">Add</button>
+<button (click)="removeDogs()">Delete</button>
+
+<div *ngIf="dogs.length > 0; then areDogs else noDogs"></div>
+
+<ng-template #areDogs>
+    <ul>
+        <li *ngFor="let dog of dogs; let i = index">
+            {{i + 1}}. {{dog.name}}, age: {{dog.age}}
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #noDogs>
+    <div>There are no dawgs!</div>
+</ng-template>

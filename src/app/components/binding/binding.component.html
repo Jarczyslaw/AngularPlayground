@@ -1,0 +1,22 @@
+<h1>Binding</h1>
+
+<h3 [className]="headerClass">Property binding</h3>
+<img [src]="logoUrl">
+<input [maxLength]="maxLength" [value]="inputText">
+<button [disabled]="isDisabled" (click)="propertyBindingClick()">Dodaj</button>
+
+<h3>Event binding</h3>
+<input (focus)="onFocus()">
+<br />
+<input (click)="onClick($event)">
+<br />
+<input (mousemove)="onMove($event)">
+<br />
+<input (paste)="onPaste()">{{ inputText }}
+<br />
+
+<h3>Two way binding</h3>
+<input [(ngModel)]="inputModel">
+{{ inputModel }}
+<br />
+<button (click)="clearInput()">Clear</button>

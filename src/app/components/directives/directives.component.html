@@ -1,0 +1,25 @@
+<h1>Directives</h1>
+
+<h3>*ngIf + hidden</h3>
+<button (click)="toggleEnabled()">Toggle enabled</button>
+<button (click)="toggleHidden()">Toggle hidden</button>
+<p *ngIf="isEnabled" [hidden]="isHidden">TEST</p>
+
+<h3>*ngFor + *ngIf + index + even + ng-container</h3>
+<ul>
+    <ng-container *ngFor="let day of days; let e = even; let i = index">
+        <li *ngIf="e">
+            {{ i }}. {{ day }} <span *ngIf="i >= 5">WEEEEEEKEND</span>
+        </li>
+    </ng-container>
+</ul>
+
+<h3>*ngFor + *ngSwitch</h3>
+<div>
+    <ng-container *ngFor="let day of days">
+        <ng-container [ngSwitch]="day">
+            <div *ngSwitchCase="'friday'">{{ day | uppercase }}</div>
+            <div *ngSwitchDefault>{{day}}</div>
+        </ng-container>
+    </ng-container>
+</div>

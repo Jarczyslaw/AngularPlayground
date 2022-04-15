@@ -16,7 +16,7 @@ export class StringInterpolationComponent {
   dog = new Dog('Reksio', 4);
 
   showDog(): string {
-    return 'Mój pies to: ' + this.dog.name + ', ma ' + this.dog.age + ' lata';
+    return 'My dog\'s name is ' + this.dog.name + ' and it\'s ' + this.dog.age + ' years old';
   }
 
 }
