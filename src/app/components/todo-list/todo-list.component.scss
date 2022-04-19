@@ -1,0 +1,12 @@
+.container {
+    width: 400px;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: auto auto;
+    text-align: center;
+
+    .header {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}

@@ -8,6 +8,7 @@ import { DirectivesComponent } from './components/directives/directives.componen
 import { TemplatesComponent } from './components/templates/templates.component';
 import { BindingComponent } from './components/binding/binding.component';
 import { FormsModule } from '@angular/forms';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     StringInterpolationComponent,
     DirectivesComponent,
     TemplatesComponent,
-    BindingComponent
+    BindingComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,

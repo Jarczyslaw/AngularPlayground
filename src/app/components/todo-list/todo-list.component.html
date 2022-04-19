@@ -1,0 +1,50 @@
+<h1>To do list</h1>
+
+<div class="container">
+    <div class="header">
+        Create new task:
+        <input [(ngModel)]="taskName">
+        <button (click)="addTask()">Add task</button>
+    </div>
+
+    <div class="column-panel">
+        <ng-container *ngIf="todoTasks.length > 0; then todoTasksTemplate else noTodoTasksTemplate"></ng-container>
+    </div>
+
+    <div class="column-panel">
+        <ng-container *ngIf="doneTasks.length > 0; then doneTasksTemplate else noDoneTasksTemplate"></ng-container>
+    </div>
+</div>
+
+<ng-template #doneTasksTemplate>
+    <p>Tasks done ({{ doneTasks.length }}): </p>
+    <ul>
+        <li *ngFor="let task of doneTasks">
+            {{ task }} 
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #noDoneTasksTemplate>
+    <div>
+        No done tasks!
+    </div>
+</ng-template>
+
+<ng-template #todoTasksTemplate>
+    <p>Tasks to do:</p>
+    <ul>
+        <li *ngFor="let task of todoTasks">
+            {{ task }} 
+            <button (click)="deleteTask(task)">Delete</button>
+            <button (click)="doneTask(task)">Done!</button>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #noTodoTasksTemplate>
+    <div>
+        No to do tasks!
+    </div>
+</ng-template>
+
