@@ -13,6 +13,10 @@ import { InputsOutputsComponent } from './components/inputs-outputs/inputs-outpu
 import { SampleListComponent } from './components/inputs-outputs/sample-list/sample-list.component';
 import { AddTasksComponent } from './components/todo-list/add-tasks/add-tasks.component';
 import { TasksListComponent } from './components/todo-list/tasks-list/tasks-list.component';
+import { NgContentSampleComponent } from './components/ng-content-sample/ng-content-sample.component';
+import { NestedComponentComponent } from './components/ng-content-sample/nested-component/nested-component.component';
+import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
+import { LifecycleChildComponent } from './components/lifecycle/lifecycle-child/lifecycle-child.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { TasksListComponent } from './components/todo-list/tasks-list/tasks-list
     InputsOutputsComponent,
     SampleListComponent,
     AddTasksComponent,
-    TasksListComponent
+    TasksListComponent,
+    NgContentSampleComponent,
+    NestedComponentComponent,
+    LifecycleComponent,
+    LifecycleChildComponent
   ],
   imports: [
     BrowserModule,

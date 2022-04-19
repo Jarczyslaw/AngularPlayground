@@ -1,0 +1,5 @@
+<h1>Lifecycle</h1>
+<button (click)="toggleEnabled()">Toggle enabled</button>
+<button (click)="increment()">Increment</button>
+
+<app-lifecycle-child *ngIf="enabled" [input]="input"></app-lifecycle-child>
