@@ -9,6 +9,10 @@ import { TemplatesComponent } from './components/templates/templates.component';
 import { BindingComponent } from './components/binding/binding.component';
 import { FormsModule } from '@angular/forms';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { InputsOutputsComponent } from './components/inputs-outputs/inputs-outputs.component';
+import { SampleListComponent } from './components/inputs-outputs/sample-list/sample-list.component';
+import { AddTasksComponent } from './components/todo-list/add-tasks/add-tasks.component';
+import { TasksListComponent } from './components/todo-list/tasks-list/tasks-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     DirectivesComponent,
     TemplatesComponent,
     BindingComponent,
-    TodoListComponent
+    TodoListComponent,
+    InputsOutputsComponent,
+    SampleListComponent,
+    AddTasksComponent,
+    TasksListComponent
   ],
   imports: [
     BrowserModule,

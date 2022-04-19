@@ -1,0 +1,18 @@
+<ng-container *ngIf="tasks.length > 0; then tasksTemplate else emptyTemplate"></ng-container>
+
+<ng-template #tasksTemplate>
+    <p>{{ tasksHeader }} ({{ tasks.length }}): </p>
+    <ul>
+        <li *ngFor="let task of tasks">
+            {{ task }} 
+            <button *ngIf="todoMode" (click)="deleteTask(task)">Delete</button>
+            <button *ngIf="todoMode" (click)="doneTask(task)">Done!</button>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #emptyTemplate>
+    <div>
+        {{ emptyText }}
+    </div>
+</ng-template>

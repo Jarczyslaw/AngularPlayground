@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
-  taskName: string = '';
   todoTasks: string[] = [];
   doneTasks: string[] = [];
 
@@ -16,14 +15,8 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addTask(): void {
-    if (this.taskName == null || this.taskName.length === 0) {
-      alert("Invalid task name");
-      return;
-    }
-
-    this.todoTasks.push(this.taskName);
-    this.taskName = '';
+  addTask(task: string): void {
+    this.todoTasks.push(task);
   }
 
   deleteTask(task: string): void {
@@ -31,7 +24,7 @@ export class TodoListComponent implements OnInit {
   }
 
   doneTask(task: string): void {
-    this.removeFromArray(task, this.todoTasks);
+    this.deleteTask(task);
     this.doneTasks.push(task);
   }
 
