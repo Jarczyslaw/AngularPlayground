@@ -17,6 +17,8 @@ import { NgContentSampleComponent } from './components/ng-content-sample/ng-cont
 import { NestedComponentComponent } from './components/ng-content-sample/nested-component/nested-component.component';
 import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { LifecycleChildComponent } from './components/lifecycle/lifecycle-child/lifecycle-child.component';
+import { LocalReferencesComponent } from './components/local-references/local-references.component';
+import { LocalReferencesChildComponent } from './components/local-references/local-references-child/local-references-child.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { LifecycleChildComponent } from './components/lifecycle/lifecycle-child/
     NgContentSampleComponent,
     NestedComponentComponent,
     LifecycleComponent,
-    LifecycleChildComponent
+    LifecycleChildComponent,
+    LocalReferencesComponent,
+    LocalReferencesChildComponent
   ],
   imports: [
     BrowserModule,
