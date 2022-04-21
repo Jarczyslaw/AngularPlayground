@@ -13,6 +13,7 @@ export class TodoListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.todoTasks = ['Sprzątanie kuwety', 'Nauka angulara', 'Podlewanie kwiatów', 'Zakupy'];
   }
 
   addTask(task: string): void {
