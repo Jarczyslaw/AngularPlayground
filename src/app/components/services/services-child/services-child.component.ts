@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-services-child',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesChildComponent implements OnInit {
 
-  constructor() { }
+  clicks = 0;
+
+  constructor(private readonly commonService: CommonService) { }
 
   ngOnInit(): void {
   }
 
+  addClick() {
+    this.clicks++;
+    this.commonService.addClicks();
+  }
 }

@@ -11,9 +11,12 @@ import { CommonService } from './common.service';
 })
 export class ServicesComponent implements OnInit {
 
-  constructor() { }
+  clicksSum: number = 0;
+
+  constructor(private readonly commonService: CommonService) { }
 
   ngOnInit(): void {
+    this.commonService.getSum().subscribe(x => this.clicksSum = x);
   }
 
 }
