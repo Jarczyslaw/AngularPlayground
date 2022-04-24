@@ -21,6 +21,8 @@ import { LocalReferencesComponent } from './components/local-references/local-re
 import { LocalReferencesChildComponent } from './components/local-references/local-references-child/local-references-child.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ServicesChildComponent } from './components/services/services-child/services-child.component';
+import { CheckedDirective } from './directives/checked.directive';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { ServicesChildComponent } from './components/services/services-child/ser
     LocalReferencesComponent,
     LocalReferencesChildComponent,
     ServicesComponent,
-    ServicesChildComponent
+    ServicesChildComponent,
+    CheckedDirective
   ],
   imports: [
     BrowserModule,

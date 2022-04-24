@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskModel } from './models/task.model';
 import { TasksService } from './services/tasks.service';
 
 @Component({
@@ -11,8 +12,8 @@ import { TasksService } from './services/tasks.service';
 })
 export class TodoListComponent implements OnInit {
 
-  todoTasks: string[] = [];
-  doneTasks: string[] = [];
+  todoTasks: TaskModel[] = [];
+  doneTasks: TaskModel[] = [];
 
   constructor(private readonly tasksService: TasksService) {
     tasksService.getDoneTasksObservable()
@@ -25,15 +26,15 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addTask(task: string) {
-    console.log('Task was added: ' + task);
+  addTask(task: TaskModel) {
+    console.log('Task was added: ' + task.name);
   }
 
-  deleteTask(task: string) {
-    console.log('Task was deleted: ' + task);
+  deleteTask(task: TaskModel) {
+    console.log('Task was deleted: ' + task.name);
   }
 
-  doneTask(task: string) {
-    console.log('Task was done: ' + task);
+  doneTask(task: TaskModel) {
+    console.log('Task was done: ' + task.name);
   }
 }

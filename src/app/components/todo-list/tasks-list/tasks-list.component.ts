@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { TaskModel } from '../models/task.model';
 import { TasksService } from '../services/tasks.service';
 
 @Component({
@@ -9,27 +10,27 @@ import { TasksService } from '../services/tasks.service';
 })
 export class TasksListComponent implements OnInit {
 
-  @Input() tasks: string[] = [];
+  @Input() tasks: TaskModel[] = [];
   @Input() tasksHeader: string = '';
   @Input() emptyText: string = '';
   @Input() todoMode: boolean = false;
   @Input() headerColorEnabled: boolean = false;
   @Input() lastElementWarning: boolean = false;
 
-  @Output() deleteTaskEvent = new EventEmitter<string>();
-  @Output() doneTaskEvent = new EventEmitter<string>();
+  @Output() deleteTaskEvent = new EventEmitter<TaskModel>();
+  @Output() doneTaskEvent = new EventEmitter<TaskModel>();
 
   constructor(private readonly tasksService: TasksService) { }
 
   ngOnInit(): void {
   }
 
-  deleteTask(task: string): void {
+  deleteTask(task: TaskModel): void {
     this.tasksService.deleteTask(task);
     this.deleteTaskEvent.emit(task);
   }
 
-  doneTask(task: string): void {
+  doneTask(task: TaskModel): void {
     this.tasksService.doneTask(task);
     this.doneTaskEvent.emit(task);
   }

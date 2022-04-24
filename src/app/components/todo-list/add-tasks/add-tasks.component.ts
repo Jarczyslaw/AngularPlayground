@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { TaskModel } from '../models/task.model';
 import { TasksService } from '../services/tasks.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { TasksService } from '../services/tasks.service';
 export class AddTasksComponent implements OnInit {
 
   taskName: string = '';
-  @Output() addTaskEvent = new EventEmitter<string>();
+  @Output() addTaskEvent = new EventEmitter<TaskModel>();
 
   constructor(private readonly tasksService: TasksService) { }
 
@@ -21,10 +22,15 @@ export class AddTasksComponent implements OnInit {
       alert("Invalid task name");
       return;
     }
+    
+    const newTask = <TaskModel> {
+      name: this.taskName,
+      created: new Date()
+    }
 
-    this.tasksService.addTask(this.taskName);
+    this.tasksService.addTask(newTask);
 
-    this.addTaskEvent.emit(this.taskName);
+    this.addTaskEvent.emit(newTask);
     this.taskName = '';
   }
 }
