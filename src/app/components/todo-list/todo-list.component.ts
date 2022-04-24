@@ -1,38 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { TasksService } from './services/tasks.service';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss']
+  styleUrls: ['./todo-list.component.scss'],
+  providers: [
+    TasksService
+  ]
 })
 export class TodoListComponent implements OnInit {
 
   todoTasks: string[] = [];
   doneTasks: string[] = [];
 
-  constructor() { }
+  constructor(private readonly tasksService: TasksService) {
+    tasksService.getDoneTasksObservable()
+      .subscribe(x => this.doneTasks = x);
+    
+    tasksService.getTodoTasksObservable()
+      .subscribe(x => this.todoTasks = x);
+  }
 
   ngOnInit(): void {
-    this.todoTasks = ['Sprzątanie kuwety', 'Nauka angulara', 'Podlewanie kwiatów', 'Zakupy'];
   }
 
-  addTask(task: string): void {
-    this.todoTasks.push(task);
+  addTask(task: string) {
+    console.log('Task was added: ' + task);
   }
 
-  deleteTask(task: string): void {
-    this.removeFromArray(task, this.todoTasks);
+  deleteTask(task: string) {
+    console.log('Task was deleted: ' + task);
   }
 
-  doneTask(task: string): void {
-    this.deleteTask(task);
-    this.doneTasks.push(task);
-  }
-
-  private removeFromArray(item: string, array: string[]): void {
-    const index: number = array.indexOf(item);
-    if (index > -1) {
-      array.splice(index, 1);
-    }
+  doneTask(task: string) {
+    console.log('Task was done: ' + task);
   }
 }

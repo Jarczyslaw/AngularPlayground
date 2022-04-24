@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { TasksService } from '../services/tasks.service';
 
 @Component({
   selector: 'app-tasks-list',
@@ -18,16 +19,18 @@ export class TasksListComponent implements OnInit {
   @Output() deleteTaskEvent = new EventEmitter<string>();
   @Output() doneTaskEvent = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private readonly tasksService: TasksService) { }
 
   ngOnInit(): void {
   }
 
   deleteTask(task: string): void {
+    this.tasksService.deleteTask(task);
     this.deleteTaskEvent.emit(task);
   }
 
   doneTask(task: string): void {
+    this.tasksService.doneTask(task);
     this.doneTaskEvent.emit(task);
   }
 
