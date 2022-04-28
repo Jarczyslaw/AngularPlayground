@@ -46,6 +46,8 @@ export class TasksService {
     this.deleteTask(task);
     this.doneTasks.push(task);
 
+    task.end = new Date();
+
     this.todoTasksSubject.next(this.todoTasks);
     this.doneTasksSubject.next(this.doneTasks);
   }

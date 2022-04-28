@@ -22,6 +22,8 @@ import { LocalReferencesChildComponent } from './components/local-references/loc
 import { ServicesComponent } from './components/services/services.component';
 import { ServicesChildComponent } from './components/services/services-child/services-child.component';
 import { CheckedDirective } from './directives/checked.directive';
+import { DateDirective } from './directives/date.directive';
+import { TransformTaskPipe } from './pipes/transform-task.pipe';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { CheckedDirective } from './directives/checked.directive';
     LocalReferencesChildComponent,
     ServicesComponent,
     ServicesChildComponent,
-    CheckedDirective
+    CheckedDirective,
+    DateDirective,
+    TransformTaskPipe
   ],
   imports: [
     BrowserModule,
