@@ -24,6 +24,7 @@ import { ServicesChildComponent } from './components/services/services-child/ser
 import { CheckedDirective } from './directives/checked.directive';
 import { DateDirective } from './directives/date.directive';
 import { TransformTaskPipe } from './pipes/transform-task.pipe';
+import { SortByNamePipe } from './pipes/sort-by-name.pipe';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { TransformTaskPipe } from './pipes/transform-task.pipe';
     ServicesChildComponent,
     CheckedDirective,
     DateDirective,
-    TransformTaskPipe
+    TransformTaskPipe,
+    SortByNamePipe
   ],
   imports: [
     BrowserModule,

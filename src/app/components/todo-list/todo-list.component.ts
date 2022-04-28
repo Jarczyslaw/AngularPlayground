@@ -17,10 +17,10 @@ export class TodoListComponent implements OnInit {
 
   constructor(private readonly tasksService: TasksService) {
     tasksService.getDoneTasksObservable()
-      .subscribe(x => this.doneTasks = x);
+      .subscribe(x => this.doneTasks = x.slice());
     
     tasksService.getTodoTasksObservable()
-      .subscribe(x => this.todoTasks = x);
+      .subscribe(x => this.todoTasks = x.slice());
   }
 
   ngOnInit(): void {
