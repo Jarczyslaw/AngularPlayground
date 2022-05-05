@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { InlineComponentComponent } from './components/inline-component/inline-component.component';
 import { StringInterpolationComponent } from './components/string-interpolation/string-interpolation.component';
@@ -25,6 +25,7 @@ import { CheckedDirective } from './directives/checked.directive';
 import { DateDirective } from './directives/date.directive';
 import { TransformTaskPipe } from './pipes/transform-task.pipe';
 import { SortByNamePipe } from './pipes/sort-by-name.pipe';
+import { HttpTestComponent } from './components/http-test/http-test.component';
 
 
 @NgModule({
@@ -51,11 +52,13 @@ import { SortByNamePipe } from './pipes/sort-by-name.pipe';
     CheckedDirective,
     DateDirective,
     TransformTaskPipe,
-    SortByNamePipe
+    SortByNamePipe,
+    HttpTestComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
