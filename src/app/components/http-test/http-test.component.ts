@@ -36,14 +36,43 @@ export class HttpTestComponent implements OnInit {
   }
 
   addPost(): void {
+    const post: Post = {
+      userId: 1,
+      title: 'My first post',
+      body: 'First post about Angular'
+    }
+
+    this.httpTestService.addPost(post).subscribe((x: Post) => {
+      console.log(x);
+    });
   }
 
   updatePost(): void {
+    const post: Post = {
+      id: 1,
+      title: 'My first post',
+      body: 'First post about Angular'
+    }
+
+    this.httpTestService.updatePost(post).subscribe((x: Post) => {
+      console.log(x);
+    });
   }
 
   deletePost(): void {
+    this.httpTestService.deletePost(2).subscribe((x: Post) => {
+      console.log(x);
+    });
   }
 
   changePost(): void {
+    const post: Post = {
+      id: 1,
+      title: 'My first post',
+    }
+
+    this.httpTestService.changePost(post).subscribe((x: Post) => {
+      console.log(x);
+    });
   }
 }
