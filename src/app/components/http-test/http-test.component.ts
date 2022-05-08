@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { retry } from 'rxjs/operators';
 import { Post } from 'src/app/models/post';
 import { HttpTestService } from './http-test.service';
 
@@ -21,6 +23,15 @@ export class HttpTestComponent implements OnInit {
     this.httpTestService.getPosts().subscribe((x: Post[]) => {
       console.log(x);
     });
+  }
+
+  getPostsWithErrors(): void {
+    this.httpTestService.getPostsWithError() 
+      .pipe(retry(3))
+      .subscribe((x: Post[]) => {
+        console.log(x);
+      },
+      (error: HttpErrorResponse) => console.log(error.status));
   }
 
   getPost(): void {

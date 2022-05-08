@@ -11,6 +11,10 @@ export class HttpTestService {
   constructor(private http: HttpClient) {
   }
 
+  getPostsWithError(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.url + '/asd');
+  }
+
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.url);
   }
