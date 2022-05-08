@@ -8,3 +8,7 @@
 <button (click)="deletePost()">deletePost</button>
 <button (click)="changePost()">changePost</button>
 <button (click)="getPostsWithErrors()">getPostsWithErrors</button>
+
+<div *ngFor="let p of httpResult$ | async">
+  {{ p.title }}
+</div>

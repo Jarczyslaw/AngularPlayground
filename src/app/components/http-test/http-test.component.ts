@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { retry } from 'rxjs/operators';
 import { Post } from 'src/app/models/post';
 import { HttpTestService } from './http-test.service';
@@ -14,12 +15,16 @@ import { HttpTestService } from './http-test.service';
 })
 export class HttpTestComponent implements OnInit {
 
+  httpResult$: Observable<Post[]> = of([]);
+
   constructor(private httpTestService: HttpTestService) { }
 
   ngOnInit(): void {
   }
 
   getPosts(): void {
+    this.httpResult$ = this.httpTestService.getPosts();
+
     this.httpTestService.getPosts().subscribe((x: Post[]) => {
       console.log(x);
     });
