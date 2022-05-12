@@ -5,14 +5,12 @@ import { TaskModel } from "../models/task.model";
 @Injectable()
 export class TasksService { 
 
-  todoTasks: TaskModel[] = [];
-  doneTasks: TaskModel[] = [];
+  tasks: TaskModel[] = [];
 
-  private todoTasksSubject = new BehaviorSubject<TaskModel[]>([]);
-  private doneTasksSubject = new BehaviorSubject<TaskModel[]>([]);
+  private tasksSubject = new BehaviorSubject<TaskModel[]>([]);
 
   constructor() {
-    this.todoTasks = [
+    this.tasks = [
       <TaskModel> { 
         name: 'Sprzątanie kuwety',
         created: new Date()
@@ -30,34 +28,27 @@ export class TasksService {
         created: new Date()
       },
     ];
-    this.todoTasksSubject.next(this.todoTasks);
+    this.tasksSubject.next(this.tasks);
   }
 
   addTask(task: TaskModel): void {
-    this.todoTasks.push(task);
-    this.todoTasksSubject.next(this.todoTasks);
+    this.tasks.push(task);
+    this.tasksSubject.next(this.tasks);
   }
 
   deleteTask(task: TaskModel): void {
-    this.removeFromArray(task, this.todoTasks);
+    this.removeFromArray(task, this.tasks);
   }
 
   doneTask(task: TaskModel): void {
-    this.deleteTask(task);
-    this.doneTasks.push(task);
-
+    task.isDone = true;
     task.end = new Date();
 
-    this.todoTasksSubject.next(this.todoTasks);
-    this.doneTasksSubject.next(this.doneTasks);
+    this.tasksSubject.next(this.tasks);
   }
 
-  getTodoTasksObservable(): Observable<TaskModel[]> {
-    return this.todoTasksSubject.asObservable();
-  }
-
-  getDoneTasksObservable(): Observable<TaskModel[]> {
-    return this.doneTasksSubject.asObservable();
+  getTasksObservable(): Observable<TaskModel[]> {
+    return this.tasksSubject.asObservable();
   }
 
   private removeFromArray(item: TaskModel, array: TaskModel[]): void {

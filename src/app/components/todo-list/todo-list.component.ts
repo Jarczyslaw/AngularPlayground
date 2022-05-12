@@ -16,11 +16,11 @@ export class TodoListComponent implements OnInit {
   doneTasks: TaskModel[] = [];
 
   constructor(private readonly tasksService: TasksService) {
-    tasksService.getDoneTasksObservable()
-      .subscribe(x => this.doneTasks = x.slice());
-    
-    tasksService.getTodoTasksObservable()
-      .subscribe(x => this.todoTasks = x.slice());
+    tasksService.getTasksObservable()
+      .subscribe(x => {
+        this.todoTasks = x.filter(y => !y.isDone);
+        this.doneTasks = x.filter(y => y.isDone);
+      });
   }
 
   ngOnInit(): void {
