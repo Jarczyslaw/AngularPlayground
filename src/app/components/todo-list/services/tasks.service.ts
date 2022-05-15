@@ -1,60 +1,42 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { TaskModel } from "../models/task.model";
+import { HttpTasks } from "./http-tasks.service";
 
 @Injectable()
 export class TasksService { 
 
-  tasks: TaskModel[] = [];
-
   private tasksSubject = new BehaviorSubject<TaskModel[]>([]);
 
-  constructor() {
-    this.tasks = [
-      <TaskModel> { 
-        name: 'Sprzątanie kuwety',
-        created: new Date()
-      },
-      <TaskModel> { 
-        name: 'Nauka angulara',
-        created: new Date()
-      },
-      <TaskModel> { 
-        name: 'Podlewanie kwiatów',
-        created: new Date()
-      },
-      <TaskModel> { 
-        name: 'Zakupy',
-        created: new Date()
-      },
-    ];
-    this.tasksSubject.next(this.tasks);
+  private get tasks(): TaskModel[] { return this.tasksSubject.getValue(); }
+
+  constructor(private readonly httpTasks: HttpTasks) {
+    this.refreshTasks();
   }
 
   addTask(task: TaskModel): void {
-    this.tasks.push(task);
-    this.tasksSubject.next(this.tasks);
+    this.httpTasks.addTask(task).subscribe(_ => {
+      this.refreshTasks();
+    });
   }
 
   deleteTask(task: TaskModel): void {
-    this.removeFromArray(task, this.tasks);
+    this.httpTasks.deleteTask(task).subscribe(() => {
+      this.refreshTasks();
+    })
   }
 
   doneTask(task: TaskModel): void {
-    task.isDone = true;
-    task.end = new Date();
-
-    this.tasksSubject.next(this.tasks);
+    this.httpTasks.doneTask(task).subscribe(_ => {
+      this.refreshTasks();
+    })
   }
 
   getTasksObservable(): Observable<TaskModel[]> {
     return this.tasksSubject.asObservable();
   }
 
-  private removeFromArray(item: TaskModel, array: TaskModel[]): void {
-    const index: number = array.indexOf(item);
-    if (index > -1) {
-      array.splice(index, 1);
-    }
+  private refreshTasks(): void {
+    this.httpTasks.getTasks().subscribe(x =>this.tasksSubject.next(x));
   }
 }

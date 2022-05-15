@@ -53,7 +53,7 @@ import { HttpTestComponent } from './components/http-test/http-test.component';
     DateDirective,
     TransformTaskPipe,
     SortByNamePipe,
-    HttpTestComponent
+    HttpTestComponent,
   ],
   imports: [
     BrowserModule,

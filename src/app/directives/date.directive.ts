@@ -6,10 +6,10 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
 export class DateDirective {
 
   @Input()
-  createDate!: Date;
+  createDate!: string;
 
   @Input()
-  doneDate?: Date;
+  doneDate?: string;
 
   private paragraph: any;
 
@@ -19,14 +19,14 @@ export class DateDirective {
 
   @HostListener('mouseenter')
   mouseEnter(event: Event): void {
-    let date: Date;
+    let date: string;
     if (this.doneDate != null) {
       date = this.doneDate;
     } else {
       date = this.createDate;
     }
 
-    this.paragraph.innerHTML = date.toLocaleDateString();
+    this.paragraph.innerHTML = new Date(date).toLocaleString();
 
     this.renderer.appendChild(this.el.nativeElement, this.paragraph);
   }

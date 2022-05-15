@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskModel } from './models/task.model';
+import { HttpTasks } from './services/http-tasks.service';
 import { TasksService } from './services/tasks.service';
 
 @Component({
@@ -7,7 +8,8 @@ import { TasksService } from './services/tasks.service';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
   providers: [
-    TasksService
+    TasksService,
+    HttpTasks
   ]
 })
 export class TodoListComponent implements OnInit {
