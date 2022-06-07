@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-inline-component',
-  template: `<h1>Inline component</h1><p>Component without template and css files</p>`,
+  template: `<p>Component without template and css files</p>`,
   styles: [`h1 { font-size: 36px; }`]
 })
 export class InlineComponentComponent implements OnInit {

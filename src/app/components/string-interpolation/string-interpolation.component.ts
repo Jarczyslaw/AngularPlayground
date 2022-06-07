@@ -10,10 +10,10 @@ export class StringInterpolationComponent {
 
   constructor() { }
 
-  title = 'Angulara';
+  title = 'Angulars Course';
   pi = Math.PI;
   date = new Date();
-  dog = new Dog('Reksio', 4);
+  dog = new Dog('Rex', 4);
 
   showDog(): string {
     return 'My dog\'s name is ' + this.dog.name + ' and it\'s ' + this.dog.age + ' years old';
