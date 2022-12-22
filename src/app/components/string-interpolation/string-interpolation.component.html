@@ -6,4 +6,12 @@
     It's {{ dog.age }} years old<br />
     {{ showDog() | lowercase }}<br />
     2 + 2 = {{ 2 + 2 }}<br />
+    Function: {{ showDog }}<br />
+    Text from getter: {{ getSampleText }}<br />
+</p>
+<p>
+    LocaleId: {{ localeId }}<br />
+    Date PL: {{ date | date: 'fullDate': '' : 'pl' }}<br />
+    Date BN: {{ date | date: 'fullDate': '' : 'bn' }}<br />
+    JSon pipe: {{ dog | json }}
 </p>

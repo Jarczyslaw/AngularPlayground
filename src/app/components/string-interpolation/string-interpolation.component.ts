@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { InjectFlags } from '@angular/compiler/src/core';
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { Dog } from '../../models/dog';
 
 @Component({
@@ -8,12 +9,14 @@ import { Dog } from '../../models/dog';
 })
 export class StringInterpolationComponent {
 
-  constructor() { }
+  constructor(@Inject(LOCALE_ID) public localeId: string) { }
 
-  title = 'Angulars Course';
+  title = 'Angular Course';
   pi = Math.PI;
   date = new Date();
   dog = new Dog('Rex', 4);
+
+  get getSampleText(): string { return 'TextFromGetter'; }
 
   showDog(): string {
     return 'My dog\'s name is ' + this.dog.name + ' and it\'s ' + this.dog.age + ' years old';

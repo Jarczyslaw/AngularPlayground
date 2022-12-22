@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -26,7 +26,14 @@ import { DateDirective } from './directives/date.directive';
 import { TransformTaskPipe } from './pipes/transform-task.pipe';
 import { SortByNamePipe } from './pipes/sort-by-name.pipe';
 import { HttpTestComponent } from './components/http-test/http-test.component';
+import { ChangeDetectionComponent } from './components/change-detection/change-detection.component';
+import { registerLocaleData } from '@angular/common';
 
+import localePl from '@angular/common/locales/pl';
+import localeBn from '@angular/common/locales/bn';
+
+registerLocaleData(localePl);
+registerLocaleData(localeBn);
 
 @NgModule({
   declarations: [
@@ -54,13 +61,16 @@ import { HttpTestComponent } from './components/http-test/http-test.component';
     TransformTaskPipe,
     SortByNamePipe,
     HttpTestComponent,
+    ChangeDetectionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pl-PL' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
