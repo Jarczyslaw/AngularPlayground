@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BindingComponent {
 
   logoUrl: string = '';
-  maxLength: number = 5;
+  maxLength: number = 10;
   inputText: string = 'test';
   isDisabled: boolean = true;
   headerClass: string = 'color';
@@ -21,7 +21,7 @@ export class BindingComponent {
   }
 
   propertyBindingClick(): void {
-    this.inputText = "Test test";
+    this.inputText = "Test test test";
     this.maxLength = 10;
     this.headerClass = 'color2';
     this.logoUrl = '../../../assets/lin.png';
@@ -41,6 +41,11 @@ export class BindingComponent {
 
   onPaste() {
     this.inputText = 'Pasted!';
+  }
+
+  onKeyUp(event: KeyboardEvent): void {
+    const element = event.target as HTMLInputElement;
+    console.log(element.value);
   }
 
   clearInput(): void {

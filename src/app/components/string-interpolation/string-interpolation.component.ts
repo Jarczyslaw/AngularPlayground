@@ -8,8 +8,9 @@ import { Dog } from '../../models/dog';
   styleUrls: ['./string-interpolation.component.scss']
 })
 export class StringInterpolationComponent {
-
-  constructor(@Inject(LOCALE_ID) public localeId: string) { }
+  
+  constructor(@Inject(LOCALE_ID) public localeId: string) {
+  }
 
   title = 'Angular Course';
   pi = Math.PI;
