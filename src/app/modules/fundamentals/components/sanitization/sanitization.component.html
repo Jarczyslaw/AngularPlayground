@@ -1,0 +1,9 @@
+<h3>HTML interpolation</h3>
+<p>{{ htmlCode }}</p>
+<p [innerHTML]="htmlCode">
+</p>
+<h3>Sanitization</h3>
+<p>
+  <a [href]="insecureUrl">Not sanitized</a>
+</p>
+<a [href]="secureUrl">Sanitized</a>

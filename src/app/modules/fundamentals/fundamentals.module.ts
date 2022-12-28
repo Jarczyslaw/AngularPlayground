@@ -20,6 +20,7 @@ import { NestedComponentComponent } from './components/ng-content-sample/nested-
 import { LocalReferencesChildComponent } from './components/local-references/local-references-child/local-references-child.component';
 import { LifecycleChildComponent } from './components/lifecycle/lifecycle-child/lifecycle-child.component';
 import { SampleListComponent } from './components/inputs-outputs/sample-list/sample-list.component';
+import { SanitizationComponent } from './components/sanitization/sanitization.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { SampleListComponent } from './components/inputs-outputs/sample-list/sam
     ServicesChildComponent,
     NestedComponentComponent,
     LocalReferencesChildComponent,
-    SampleListComponent
+    SampleListComponent,
+    SanitizationComponent
   ],
   exports: [FundamentalsComponent]
 })

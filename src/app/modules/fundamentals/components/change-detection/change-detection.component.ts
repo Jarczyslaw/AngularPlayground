@@ -7,23 +7,21 @@ import { BaseComponent } from '../../../../shared/base-component';
   styleUrls: ['./change-detection.component.scss']
 })
 export class ChangeDetectionComponent 
-  extends BaseComponent implements AfterViewInit {
+  extends BaseComponent {
 
   counter: number = 0;
-  viewInitialized: boolean = false;
-
-  ngAfterViewInit(): void {
-    this.viewInitialized = true;
-  }
+  limit: number = 0;
 
   click(): void {
     this.counter++;
   }
 
   getInfo(): string {
-    if (this.viewInitialized) {
+    if (this.limit < 10) {
       this.log('GetInfo called due to ChangeDetection');
     }
+
+    this.limit++;
     return 'GetInfo';
   }
 
