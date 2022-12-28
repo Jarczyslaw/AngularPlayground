@@ -1,35 +1,38 @@
 import { AfterContentInit, AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { BaseComponent } from '../../../../../shared/base-component';
 
 @Component({
   selector: 'app-lifecycle-child',
   templateUrl: './lifecycle-child.component.html',
   styleUrls: ['./lifecycle-child.component.scss']
 })
-export class LifecycleChildComponent implements OnInit, OnChanges, AfterViewInit, AfterContentInit, OnDestroy {
+export class LifecycleChildComponent 
+  extends BaseComponent implements OnInit, OnChanges, AfterViewInit, AfterContentInit, OnDestroy {
 
   @Input() input: number = 0;
 
   constructor() {
-    console.log('constructor');
+    super();
+    this.log('constructor');
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges');
+    this.log('ngOnChanges');
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
+    this.log('ngOnInit');
   }
 
   ngAfterContentInit(): void {
-    console.log('ngAfterContentInit');
+    this.log('ngAfterContentInit');
   }
 
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
+    this.log('ngAfterViewInit');
   }
   
   ngOnDestroy(): void {
-    console.log('ngOnDestroy');
+    this.log('ngOnDestroy');
   }
 }

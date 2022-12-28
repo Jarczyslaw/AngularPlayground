@@ -1,0 +1,15 @@
+.container {
+  margin: var(--default-margin) auto;
+  width: 1000px;
+
+  h1 {
+    margin: var(--default-margin);
+  }
+}
+
+.content-container {
+  border: solid #dee2e6;
+  border-width: 1px; 
+  border-top: none;
+  padding: var(--default-margin);
+}

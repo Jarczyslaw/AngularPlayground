@@ -1,11 +1,13 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { BaseComponent } from '../../../../shared/base-component';
 
 @Component({
   selector: 'app-change-detection',
   templateUrl: './change-detection.component.html',
   styleUrls: ['./change-detection.component.scss']
 })
-export class ChangeDetectionComponent implements AfterViewInit {
+export class ChangeDetectionComponent 
+  extends BaseComponent implements AfterViewInit {
 
   counter: number = 0;
   viewInitialized: boolean = false;
@@ -20,7 +22,7 @@ export class ChangeDetectionComponent implements AfterViewInit {
 
   getInfo(): string {
     if (this.viewInitialized) {
-      console.log('GetInfo called due to ChangeDetection');
+      this.log('GetInfo called due to ChangeDetection');
     }
     return 'GetInfo';
   }

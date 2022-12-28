@@ -1,170 +1,33 @@
-<div class="accordion">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading1">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-        Inline component
-      </button>
-    </h2>
-    <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1">
-      <div class="accordion-body">
-        <app-inline-component></app-inline-component>
-      </div>
-    </div>
-  </div>
+<div class="container">
+  <h1>Angular Playground</h1>
 
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading2">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
-        String interpolation
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#fundamentals" type="button" role="tab" aria-controls="fundamentals" aria-selected="true">
+        Angular fundamentals
       </button>
-    </h2>
-    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2">
-      <div class="accordion-body">
-        <app-string-interpolation></app-string-interpolation>
-      </div>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#todoList" type="button" role="tab" aria-controls="todoList" aria-selected="false">
+        Todo list
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#httpClient" type="button" role="tab" aria-controls="httpClient" aria-selected="false">
+        Http client
+      </button>
+    </li>
+  </ul>
+  
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active content-container" id="fundamentals" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+      <app-fundamentals></app-fundamentals>
     </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading13">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="true" aria-controls="collapse13">
-       ChangeDetection
-      </button>
-    </h2>
-    <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="heading13">
-      <div class="accordion-body">
-        <app-change-detection></app-change-detection>
-      </div>
+    <div class="tab-pane fade content-container" id="todoList" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+      <app-todo-list></app-todo-list>
     </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading3">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-        Directives
-      </button>
-    </h2>
-    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3">
-      <div class="accordion-body">
-        <app-directives></app-directives>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading4">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
-        Templates
-      </button>
-    </h2>
-    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4">
-      <div class="accordion-body">
-        <app-templates></app-templates>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading5">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
-        Binding
-      </button>
-    </h2>
-    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5">
-      <div class="accordion-body">
-        <app-binding></app-binding>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading6">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
-        To do list
-      </button>
-    </h2>
-    <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6">
-      <div class="accordion-body">
-        <app-todo-list></app-todo-list>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading7">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="true" aria-controls="collapse7">
-        Inputs/Outputs
-      </button>
-    </h2>
-    <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7">
-      <div class="accordion-body">
-        <app-inputs-outputs></app-inputs-outputs>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading8">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
-        Ng-Content example
-      </button>
-    </h2>
-    <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8">
-      <div class="accordion-body">
-        <app-ng-content-sample></app-ng-content-sample>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading9">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
-        Lifecycle
-      </button>
-    </h2>
-    <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9">
-      <div class="accordion-body">
-        <app-lifecycle></app-lifecycle>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading10">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="true" aria-controls="collapse10">
-        Local references
-      </button>
-    </h2>
-    <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10">
-      <div class="accordion-body">
-        <app-local-references></app-local-references>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading11">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="true" aria-controls="collapse11">
-        Services
-      </button>
-    </h2>
-    <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11">
-      <div class="accordion-body">
-        <app-services></app-services>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading12">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="true" aria-controls="collapse12">
-        Http test
-      </button>
-    </h2>
-    <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12">
-      <div class="accordion-body">
-        <app-http-test></app-http-test>
-      </div>
+    <div class="tab-pane fade content-container" id="httpClient" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+      <app-http-test></app-http-test>
     </div>
   </div>
 </div>

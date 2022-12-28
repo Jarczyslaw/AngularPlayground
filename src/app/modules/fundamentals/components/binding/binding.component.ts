@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseComponent } from '../../../../shared/base-component';
 
 @Component({
   selector: 'app-binding',
   templateUrl: './binding.component.html',
   styleUrls: ['./binding.component.scss']
 })
-export class BindingComponent {
+export class BindingComponent extends BaseComponent {
 
   logoUrl: string = '';
   maxLength: number = 10;
@@ -15,6 +16,7 @@ export class BindingComponent {
   inputModel: string = '';
 
   constructor() {
+    super();
     setTimeout(() => {
       this.isDisabled = false;
     }, 3000);
@@ -28,15 +30,15 @@ export class BindingComponent {
   }
 
   onFocus() {
-    console.log('onFocus');
+    this.log('onFocus');
   }
 
   onClick(event: any) {
-    console.log(event);
+    this.log(event);
   }
 
   onMove(event: any) {
-    console.log(event);
+    this.log(event);
   }
 
   onPaste() {
@@ -45,7 +47,7 @@ export class BindingComponent {
 
   onKeyUp(event: KeyboardEvent): void {
     const element = event.target as HTMLInputElement;
-    console.log(element.value);
+    this.log(element.value);
   }
 
   clearInput(): void {

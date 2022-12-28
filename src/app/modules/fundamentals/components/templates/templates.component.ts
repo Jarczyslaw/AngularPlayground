@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Dog } from 'src/app/models/dog';
+import { Dog } from 'src/app/modules/fundamentals/models/dog';
 
 @Component({
   selector: 'app-templates',

@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { retry } from 'rxjs/operators';
-import { Post } from 'src/app/models/post';
+import { Post } from 'src/app/modules/fundamentals/models/post';
 import { HttpTestService } from './http-test.service';
 
 @Component({
