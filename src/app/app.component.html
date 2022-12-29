@@ -7,14 +7,22 @@
         Angular fundamentals
       </button>
     </li>
+
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#todoList" type="button" role="tab" aria-controls="todoList" aria-selected="false">
         Todo list
       </button>
     </li>
+
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#httpClient" type="button" role="tab" aria-controls="httpClient" aria-selected="false">
         Http client
+      </button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#best-quotes" type="button" role="tab" aria-controls="best-quotes" aria-selected="false">
+        Best quotes
       </button>
     </li>
   </ul>
@@ -23,11 +31,17 @@
     <div class="tab-pane fade show active content-container" id="fundamentals" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
       <app-fundamentals></app-fundamentals>
     </div>
+
     <div class="tab-pane fade content-container" id="todoList" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
       <app-todo-list></app-todo-list>
     </div>
+
     <div class="tab-pane fade content-container" id="httpClient" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
       <app-http-test></app-http-test>
+    </div>
+
+    <div class="tab-pane fade content-container" id="best-quotes" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+      <app-best-quotes></app-best-quotes>
     </div>
   </div>
 </div>

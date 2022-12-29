@@ -1,7 +1,7 @@
 <h3 [className]="headerClass">Property binding</h3>
 <img style="width: 32px; height: 32px;" [src]="logoUrl">
 <input [maxLength]="maxLength" [value]="inputText" (keyup)="onKeyUp($event)">
-<button [disabled]="isDisabled" (click)="propertyBindingClick()">Dodaj</button>
+<button class="btn btn-success" [disabled]="isDisabled" (click)="propertyBindingClick()">Dodaj</button>
 
 <h3>Event binding</h3>
 <input (focus)="onFocus()">
