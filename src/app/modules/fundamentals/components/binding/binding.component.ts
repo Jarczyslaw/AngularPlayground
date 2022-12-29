@@ -14,6 +14,7 @@ export class BindingComponent extends BaseComponent {
   isDisabled: boolean = true;
   headerClass: string = 'color';
   inputModel: string = '';
+  value: string = '';
 
   constructor() {
     super();
@@ -41,6 +42,10 @@ export class BindingComponent extends BaseComponent {
     this.log(event);
   }
 
+  onInput(event: Event) {
+    this.value = (event.target as HTMLInputElement).value;
+  }
+
   onPaste() {
     this.inputText = 'Pasted!';
   }
@@ -52,5 +57,6 @@ export class BindingComponent extends BaseComponent {
 
   clearInput(): void {
     this.inputModel = '';
+    this.value = '';
   }
 }

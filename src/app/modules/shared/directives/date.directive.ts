@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
 export class DateDirective {
 
   @Input()
-  createDate!: string;
+  createDate?: string;
 
   @Input()
   doneDate?: string;
@@ -23,7 +23,7 @@ export class DateDirective {
     if (this.doneDate != null) {
       date = this.doneDate;
     } else {
-      date = this.createDate;
+      date = this.createDate ?? '';
     }
 
     this.paragraph.innerHTML = new Date(date).toLocaleString();

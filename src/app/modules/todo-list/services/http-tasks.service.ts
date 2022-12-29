@@ -44,7 +44,7 @@ export class HttpTasks {
     const body = this.getRequestBody();
     body.filter = {
       _id: {
-        $oid: task._id.toString()
+        $oid: task._id?.toString()
       }
     }
     body.update = {
@@ -63,7 +63,7 @@ export class HttpTasks {
     const body = this.getRequestBody();
     body.filter = {
       _id: {
-        $oid: task._id.toString()
+        $oid: task._id?.toString()
       }
     }
     const options = this.getRequestOptions();

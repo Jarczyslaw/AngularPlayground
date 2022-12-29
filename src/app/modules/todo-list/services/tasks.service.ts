@@ -1,14 +1,13 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { TaskModel } from "../models/task.model";
+import { BaseTasksService } from "./base-tasks.service";
 import { HttpTasks } from "./http-tasks.service";
 
 @Injectable()
-export class TasksService { 
+export class TasksService implements BaseTasksService { 
 
   private tasksSubject = new BehaviorSubject<TaskModel[]>([]);
-
-  private get tasks(): TaskModel[] { return this.tasksSubject.getValue(); }
 
   constructor(private readonly httpTasks: HttpTasks) {
     this.refreshTasks();

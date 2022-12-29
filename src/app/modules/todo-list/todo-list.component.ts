@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskModel } from './models/task.model';
+import { BaseTasksService } from './services/base-tasks.service';
 import { HttpTasks } from './services/http-tasks.service';
 import { TasksService } from './services/tasks.service';
+import { LocalTasksService } from './services/local-tasks.service';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
   providers: [
-    TasksService,
+    { provide: BaseTasksService, useClass: LocalTasksService },
     HttpTasks
   ]
 })
@@ -17,7 +19,7 @@ export class TodoListComponent implements OnInit {
   todoTasks: TaskModel[] = [];
   doneTasks: TaskModel[] = [];
 
-  constructor(private readonly tasksService: TasksService) {
+  constructor(private readonly tasksService: BaseTasksService) {
     tasksService.getTasksObservable()
       .subscribe(x => {
         this.todoTasks = x.filter(y => !y.isDone);

@@ -17,4 +17,7 @@
 <input [(ngModel)]="inputModel">
 {{ inputModel }}
 <br />
-<button (click)="clearInput()">Clear</button>
+<button (click)="clearInput()">Clear</button><br />
+<h3>Two way binding step by step</h3>
+<input [value]="value" (input)="onInput($event)"> {{ value }} <br />
+<input [ngModel]="value" (ngModelChange)="value = $event"> {{ value }}
