@@ -21,6 +21,7 @@ import { LocalReferencesChildComponent } from './components/local-references/loc
 import { LifecycleChildComponent } from './components/lifecycle/lifecycle-child/lifecycle-child.component';
 import { SampleListComponent } from './components/inputs-outputs/sample-list/sample-list.component';
 import { SanitizationComponent } from './components/sanitization/sanitization.component';
+import { NestedGridComponentComponent } from './components/ng-content-sample/nested-grid-component/nested-grid-component.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { SanitizationComponent } from './components/sanitization/sanitization.co
     NestedComponentComponent,
     LocalReferencesChildComponent,
     SampleListComponent,
-    SanitizationComponent
+    SanitizationComponent,
+    NestedGridComponentComponent
   ],
   exports: [FundamentalsComponent]
 })

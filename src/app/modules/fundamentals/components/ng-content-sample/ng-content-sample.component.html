@@ -1,6 +1,15 @@
+<h3>Nested components with ng content</h3>
 <app-nested-component>
-    <p>Test Test</p>
+    <p>Nested component content</p>
     <app-nested-component>
-        <p>Another test test</p>
+        <p>Another nested component content</p>
     </app-nested-component>
 </app-nested-component>
+
+<h3>Nested components with many ng contents</h3>
+<app-nested-grid-component>
+    <p content1 #p>Content 1</p>
+    <p content2 #p>Content 2</p>
+    <p content3 #p>Content 3</p>
+    <p content4 #p>Content 4</p>
+</app-nested-grid-component>
