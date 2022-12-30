@@ -1,3 +1,12 @@
-<input #inputText>
-<button (click)="add(inputText)">Add</button>
-<app-local-references-child #child></app-local-references-child>
+<p>
+  <input #inputText><br />
+  <button (click)="showInChild1()">Show in child1</button><br />
+  <button (click)="showInChild2()">Show in child2</button><br />
+  <button (click)="showInChildren()">Show in children</button><br />
+  <button (click)="child1.content = ''; child2.content = ''">Clear all</button><br />
+</p>
+
+<p>
+  <app-local-references-child #child1 [name]="'Child1'"></app-local-references-child><br />
+  <app-local-references-child #child2 [name]="'Child2'"></app-local-references-child>
+</p>

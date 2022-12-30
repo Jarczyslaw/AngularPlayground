@@ -5,13 +5,10 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './local-references-child.component.html',
   styleUrls: ['./local-references-child.component.scss']
 })
-export class LocalReferencesChildComponent implements OnInit {
+export class LocalReferencesChildComponent {
 
   content: string = '';
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  @Input()
+  name: string = '';
 }
