@@ -1,5 +1,5 @@
 export class BaseComponent {
   protected log(message: any): void {
-    console.log(`[${this.constructor.name}] - ${message}`);
+    console.log(`[${this.constructor.name}]`, message);
   }
 }

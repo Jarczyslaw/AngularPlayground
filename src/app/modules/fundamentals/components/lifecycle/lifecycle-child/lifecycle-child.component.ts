@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { BaseComponent } from '../../../../../shared/base-component';
 
 @Component({
@@ -16,8 +16,10 @@ export class LifecycleChildComponent
     this.log('constructor');
   }
 
+  // call after inputs' changes
   ngOnChanges(changes: SimpleChanges): void {
     this.log('ngOnChanges');
+    this.log(changes);
   }
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class LifecycleChildComponent
     this.log('ngAfterViewInit');
   }
   
+  @HostListener('window:beforeunload')
   ngOnDestroy(): void {
     this.log('ngOnDestroy');
   }

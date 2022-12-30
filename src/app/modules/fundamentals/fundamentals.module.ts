@@ -22,6 +22,7 @@ import { LifecycleChildComponent } from './components/lifecycle/lifecycle-child/
 import { SampleListComponent } from './components/inputs-outputs/sample-list/sample-list.component';
 import { SanitizationComponent } from './components/sanitization/sanitization.component';
 import { NestedGridComponentComponent } from './components/ng-content-sample/nested-grid-component/nested-grid-component.component';
+import { ExpressionChangedErrorComponent } from './components/expression-changed-error/expression-changed-error.component';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { NestedGridComponentComponent } from './components/ng-content-sample/nes
     LocalReferencesChildComponent,
     SampleListComponent,
     SanitizationComponent,
-    NestedGridComponentComponent
+    NestedGridComponentComponent,
+    ExpressionChangedErrorComponent
   ],
   exports: [FundamentalsComponent]
 })
