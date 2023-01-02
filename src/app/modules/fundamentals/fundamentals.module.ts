@@ -23,6 +23,8 @@ import { SampleListComponent } from './components/inputs-outputs/sample-list/sam
 import { SanitizationComponent } from './components/sanitization/sanitization.component';
 import { NestedGridComponentComponent } from './components/ng-content-sample/nested-grid-component/nested-grid-component.component';
 import { ExpressionChangedErrorComponent } from './components/expression-changed-error/expression-changed-error.component';
+import { ViewEncapsulationComponent } from './components/view-encapsulation/view-encapsulation.component';
+import { ViewEncapsulationChildComponent } from './components/view-encapsulation/view-encapsulation-child/view-encapsulation-child.component';
 
 @NgModule({
   imports: [
@@ -51,7 +53,9 @@ import { ExpressionChangedErrorComponent } from './components/expression-changed
     SampleListComponent,
     SanitizationComponent,
     NestedGridComponentComponent,
-    ExpressionChangedErrorComponent
+    ExpressionChangedErrorComponent,
+    ViewEncapsulationComponent,
+    ViewEncapsulationChildComponent
   ],
   exports: [FundamentalsComponent]
 })

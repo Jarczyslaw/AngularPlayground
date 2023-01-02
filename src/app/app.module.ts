@@ -11,7 +11,7 @@ import { TodoListModule } from './modules/todo-list/todo-list.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { HttpTestModule } from './modules/http-test/http-test.module';
 import { FundamentalsModule } from './modules/fundamentals/fundamentals.module';
-import { BestQuotesModule } from './modules/best-quotes/best-quotes.module';
+import { MiscModule } from './modules/misc/misc.module';
 
 registerLocaleData(localePl);
 registerLocaleData(localeBn);
@@ -28,7 +28,7 @@ registerLocaleData(localeBn);
     SharedModule,
     HttpTestModule,
     FundamentalsModule,
-    BestQuotesModule
+    MiscModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pl-PL' }
