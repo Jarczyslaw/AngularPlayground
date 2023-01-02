@@ -1,7 +1,14 @@
-<h3 [className]="headerClass">Property binding</h3>
-<img style="width: 32px; height: 32px;" [src]="logoUrl">
-<input [maxLength]="maxLength" [value]="inputText" (keyup)="onKeyUp($event)">
-<button class="btn btn-success" [disabled]="isDisabled" (click)="propertyBindingClick()">Dodaj</button>
+<h3 [ngClass]="headerClass">Property binding</h3>
+<p>
+  <img style="width: 32px; height: 32px;" [src]="logoUrl">
+  <input [maxLength]="maxLength" [value]="inputText" (keyup)="onKeyUp($event)">
+  <button class="btn btn-success" [disabled]="isDisabled" (click)="propertyBindingClick()">Add</button>
+</p>
+<p>
+  <h2 [ngStyle]="getHeaderStyle()">Header with ngStyle</h2>
+<p>
+  <h3 [style.fontSize.px]="maxLength">Header with style.fontSize.px</h3>
+
 
 <h3>Event binding</h3>
 <input (focus)="onFocus()">

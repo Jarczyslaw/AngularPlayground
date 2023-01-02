@@ -12,7 +12,7 @@ export class BindingComponent extends BaseComponent {
   maxLength: number = 10;
   inputText: string = 'test';
   isDisabled: boolean = true;
-  headerClass: string = 'color';
+  headerClass: string[] = ['color', 'bold'];
   inputModel: string = '';
   value: string = '';
 
@@ -26,7 +26,7 @@ export class BindingComponent extends BaseComponent {
   propertyBindingClick(): void {
     this.inputText = "Test test test";
     this.maxLength = 10;
-    this.headerClass = 'color2';
+    this.headerClass = ['color2', 'bold'];
     this.logoUrl = '../../../assets/lin.png';
   }
 
@@ -58,5 +58,12 @@ export class BindingComponent extends BaseComponent {
   clearInput(): void {
     this.inputModel = '';
     this.value = '';
+  }
+
+  getHeaderStyle(): any {
+    return {
+      fontSize: '40px',
+      color: 'red'
+    };
   }
 }
