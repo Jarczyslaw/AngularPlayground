@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { ToastService } from 'src/app/shared/toasts/toast-service';
 
 @Component({
@@ -8,13 +8,17 @@ import { ToastService } from 'src/app/shared/toasts/toast-service';
 })
 export class RxjsSampleComponent implements OnInit, OnDestroy {
 
-  constructor(private toastService: ToastService) {
-    
-  }
+  @Output()
+  onInit: EventEmitter<any> = new EventEmitter<any>();
+
+  @Output()
+  onDestroy: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnInit(): void {
+    this.onInit.emit();
   }
 
 	ngOnDestroy(): void {
+    this.onDestroy.emit();
 	}
 }

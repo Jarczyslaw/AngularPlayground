@@ -2,4 +2,9 @@
   {{ sampleEnabled ? 'Hide sample' : 'Show sample' }}
 </button><br />
 
-<app-rxjs-sample *ngIf="sampleEnabled"></app-rxjs-sample>
+<app-rxjs-sample 
+  (onDestroy)="onSampleDestroy()"
+  (onInit)="onSampleInit()"
+  *ngIf="sampleEnabled"></app-rxjs-sample>
+
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
