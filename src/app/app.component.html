@@ -27,6 +27,12 @@
     </li>
 
     <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#bootstrap" type="button" role="tab" aria-controls="bootstrap" aria-selected="false">
+        Bootstrap components
+      </button>
+    </li>
+
+    <li class="nav-item" role="presentation">
       <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#misc" type="button" role="tab" aria-controls="misc" aria-selected="false">
         Misc
       </button>
@@ -48,6 +54,10 @@
 
     <div class="tab-pane fade content-container" id="rxjs" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
       <app-rxjs></app-rxjs>
+    </div>
+
+    <div class="tab-pane fade content-container" id="bootstrap" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+      <app-bootstrap-components></app-bootstrap-components>
     </div>
 
     <div class="tab-pane fade content-container" id="misc" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">

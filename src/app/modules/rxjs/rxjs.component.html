@@ -1,3 +1,5 @@
-<p>
-  rxjs works!
-</p>
+<button (click)="sampleEnabled = !sampleEnabled;">
+  {{ sampleEnabled ? 'Hide sample' : 'Show sample' }}
+</button><br />
+
+<app-rxjs-sample *ngIf="sampleEnabled"></app-rxjs-sample>

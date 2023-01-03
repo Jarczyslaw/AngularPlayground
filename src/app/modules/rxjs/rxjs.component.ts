@@ -5,11 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './rxjs.component.html',
   styleUrls: ['./rxjs.component.css']
 })
-export class RxjsComponent implements OnInit {
+export class RxjsComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  sampleEnabled: boolean = false;
 }

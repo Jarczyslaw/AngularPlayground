@@ -14,6 +14,7 @@ import { FundamentalsModule } from './modules/fundamentals/fundamentals.module';
 import { MiscModule } from './modules/misc/misc.module';
 import { RxjsModule } from './modules/rxjs/rxjs.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BootstrapComponentsModule } from './modules/bootstrap-components/bootstrap-components.module';
 
 registerLocaleData(localePl);
 registerLocaleData(localeBn);
@@ -32,7 +33,8 @@ registerLocaleData(localeBn);
     FundamentalsModule,
     MiscModule,
     RxjsModule,
-    NgbModule
+    NgbModule,
+    BootstrapComponentsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pl-PL' }
