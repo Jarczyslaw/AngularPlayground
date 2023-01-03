@@ -8,7 +8,9 @@ import { ToastService } from 'src/app/shared/toasts/toast-service';
 })
 export class RxjsSampleComponent implements OnInit, OnDestroy {
 
-  constructor() {}
+  constructor(private toastService: ToastService) {
+    
+  }
 
   ngOnInit(): void {
   }
