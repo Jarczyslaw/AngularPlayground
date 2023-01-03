@@ -12,6 +12,8 @@ import { SharedModule } from './modules/shared/shared.module';
 import { HttpTestModule } from './modules/http-test/http-test.module';
 import { FundamentalsModule } from './modules/fundamentals/fundamentals.module';
 import { MiscModule } from './modules/misc/misc.module';
+import { RxjsModule } from './modules/rxjs/rxjs.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(localePl);
 registerLocaleData(localeBn);
@@ -28,7 +30,9 @@ registerLocaleData(localeBn);
     SharedModule,
     HttpTestModule,
     FundamentalsModule,
-    MiscModule
+    MiscModule,
+    RxjsModule,
+    NgbModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pl-PL' }

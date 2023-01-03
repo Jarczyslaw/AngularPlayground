@@ -40,5 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-/src/app/components/todo-list/services/api-data.ts
-/src/app/modules/todo-list/services/api-data.ts

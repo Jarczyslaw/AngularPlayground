@@ -4,7 +4,6 @@ import { ObjectId } from "bson";
 import { map } from "rxjs";
 import { Observable } from "rxjs/internal/Observable";
 import { TaskModel } from "../models/task.model";
-import { API_KEY, API_URL } from "./api-data";
 
 interface FindResponse {
   documents: TaskModel[];
@@ -16,6 +15,10 @@ interface InsertResponse {
 
 @Injectable()
 export class HttpTasks {
+
+  readonly API_URL: string = '';
+  readonly API_KEY: string = '';
+
   constructor(private readonly httpClient: HttpClient) {
     this.getTasks();
   }
@@ -24,7 +27,7 @@ export class HttpTasks {
     const body = this.getRequestBody();
     const options = this.getRequestOptions();
 
-    return this.httpClient.post<FindResponse>(API_URL + '/action/find', body, options)
+    return this.httpClient.post<FindResponse>(this.API_URL + '/action/find', body, options)
       .pipe(map(x => x.documents));
   }
 
@@ -33,7 +36,7 @@ export class HttpTasks {
     body.document = task;
     const options = this.getRequestOptions();
 
-    return this.httpClient.post<InsertResponse>(API_URL + '/action/insertOne', body, options)
+    return this.httpClient.post<InsertResponse>(this.API_URL + '/action/insertOne', body, options)
       .pipe(map(x => {
         task._id = x.insertedId;
         return task;
@@ -56,7 +59,7 @@ export class HttpTasks {
 
     const options = this.getRequestOptions();
 
-    return this.httpClient.post(API_URL + '/action/updateOne', body, options);
+    return this.httpClient.post(this.API_URL + '/action/updateOne', body, options);
   } 
 
   deleteTask(task: TaskModel): Observable<any> {
@@ -68,7 +71,7 @@ export class HttpTasks {
     }
     const options = this.getRequestOptions();
 
-    return this.httpClient.post(API_URL + '/action/deleteOne', body, options);
+    return this.httpClient.post(this.API_URL + '/action/deleteOne', body, options);
   }
 
   private getRequestBody(): any {
@@ -82,7 +85,7 @@ export class HttpTasks {
   private getRequestOptions() {
     const headers = new HttpHeaders({ 
       'Content-Type': 'application/json',
-      'api-key': API_KEY
+      'api-key': this.API_KEY
     });
     return { headers: headers };
   }

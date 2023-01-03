@@ -1,5 +1,4 @@
-import { InjectFlags } from '@angular/compiler/src/core';
-import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { Dog } from '../../models/dog';
 
 @Component({

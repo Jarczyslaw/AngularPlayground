@@ -21,6 +21,12 @@
     </li>
 
     <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#rxjs" type="button" role="tab" aria-controls="rxjs" aria-selected="false">
+        RxJS
+      </button>
+    </li>
+
+    <li class="nav-item" role="presentation">
       <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#misc" type="button" role="tab" aria-controls="misc" aria-selected="false">
         Misc
       </button>
@@ -38,6 +44,10 @@
 
     <div class="tab-pane fade content-container" id="httpClient" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
       <app-http-test></app-http-test>
+    </div>
+
+    <div class="tab-pane fade content-container" id="rxjs" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+      <app-rxjs></app-rxjs>
     </div>
 
     <div class="tab-pane fade content-container" id="misc" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
