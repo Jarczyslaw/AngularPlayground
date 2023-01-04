@@ -1,1 +1,16 @@
-<p>Rx sample</p>
+<div class="container">
+  <strong>Of: </strong> {{ ofObservable | async }}<br />
+  <strong>From: </strong>{{ fromObservable | async }} (array value by value)
+</div>
+
+<div class="container">
+  <input [(ngModel)]="itemName"><button (click)="addItem()">Add</button><br />
+  <strong>Item name: </strong>{{ subjectObservable | async }}<br />
+  <strong>Pipe result: </strong>{{ pipeResult }}
+</div>
+
+<div class="container">
+  <strong>MouseClickResult: </strong> {{ mouseClickResult }}<br />
+  <strong>Zip: </strong> {{ zipResult }}<br />
+  <strong>SwitchmapResult: </strong> {{ switchmapResult }}<br />
+</div>

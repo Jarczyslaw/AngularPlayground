@@ -1,10 +1,13 @@
 <button (click)="sampleEnabled = !sampleEnabled;">
   {{ sampleEnabled ? 'Hide sample' : 'Show sample' }}
-</button><br />
+</button>
+<input type="checkbox" [(ngModel)]="callOnDestroy">Call onDestroy<br />
 
 <app-rxjs-sample 
   (onDestroy)="onSampleDestroy()"
   (onInit)="onSampleInit()"
-  *ngIf="sampleEnabled"></app-rxjs-sample>
+  (onSubjectNext)="onSubjectNext($event)"
+  *ngIf="sampleEnabled"
+  [callOnDestroy]="callOnDestroy"></app-rxjs-sample>
 
 <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
