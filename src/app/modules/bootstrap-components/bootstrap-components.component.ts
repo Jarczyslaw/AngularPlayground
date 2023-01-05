@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastService } from 'src/app/shared/toasts/toast-service';
-import { ToastsContainer } from '../../shared/toasts/toasts-container.component';
+import { ToastService } from 'src/app/modules/shared/toasts/toast-service';
+import { ToastsContainer } from '../shared/toasts/toasts-container.component';
 
 @Component({
   selector: 'app-bootstrap-components',

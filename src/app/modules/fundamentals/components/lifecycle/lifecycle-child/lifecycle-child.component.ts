@@ -1,5 +1,5 @@
 import { AfterContentInit, AfterViewInit, Component, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { BaseComponent } from '../../../../../shared/base-component';
+import { BaseComponent } from '../../../../shared/base-component';
 
 @Component({
   selector: 'app-lifecycle-child',

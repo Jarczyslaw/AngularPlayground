@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, OnInit, QueryList } from '@angular/core';
-import { BaseComponent } from 'src/app/shared/base-component';
-
+import { BaseComponent } from 'src/app/modules/shared/base-component';
 @Component({
   selector: 'app-nested-grid-component',
   templateUrl: './nested-grid-component.component.html',

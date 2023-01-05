@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { BaseComponent } from '../../../../shared/base-component';
+import { BaseComponent } from '../../../shared/base-component';
 
 @Component({
   selector: 'app-change-detection',

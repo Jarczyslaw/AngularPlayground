@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, EventEmitter, Output, Input } from '@angular/core';
 import { Subscription, BehaviorSubject, of, from, Subject, zip, delay, map, fromEvent, tap, switchScan, interval, switchMap } from 'rxjs';
-import { ToastService } from 'src/app/shared/toasts/toast-service';
+import { ToastService } from 'src/app/modules/shared/toasts/toast-service';
 import { Observable } from 'rxjs/internal/Observable';
-import { BaseComponent } from '../../../shared/base-component';
+import { BaseComponent } from '../../shared/base-component';
 
 @Component({
   selector: 'app-rxjs-sample',
@@ -77,6 +77,14 @@ export class RxjsSampleComponent extends BaseComponent implements OnInit, OnDest
     fromEvent(document, 'click').pipe(
       switchMap(x => interval(1000)))
         .subscribe(x => this.switchmapResult = x);
+
+    from([1, 2, 3, 4, 5]).pipe(
+      switchMap(x => this.getObservable(x)))
+        .subscribe(this.log);
+  }
+
+  private getObservable(num: number): Observable<number> {
+    return of(num * 2);
   }
 
 	ngOnDestroy(): void {

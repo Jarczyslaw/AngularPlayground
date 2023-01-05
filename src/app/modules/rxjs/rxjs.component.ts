@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastService } from '../../shared/toasts/toast-service';
+import { ToastService } from '../shared/toasts/toast-service';
 
 @Component({
   selector: 'app-rxjs',
