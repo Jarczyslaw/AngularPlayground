@@ -15,6 +15,8 @@ import { MiscModule } from './modules/misc/misc.module';
 import { RxjsModule } from './modules/rxjs/rxjs.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapComponentsModule } from './modules/bootstrap-components/bootstrap-components.module';
+import { RoutingTestModule } from './modules/routing-test/routing-test.module';
+import { AppRoutingModule } from './app-routing.module';
 
 registerLocaleData(localePl);
 registerLocaleData(localeBn);
@@ -34,7 +36,9 @@ registerLocaleData(localeBn);
     MiscModule,
     RxjsModule,
     NgbModule,
-    BootstrapComponentsModule
+    BootstrapComponentsModule,
+    RoutingTestModule,
+    AppRoutingModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pl-PL' }

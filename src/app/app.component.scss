@@ -5,6 +5,13 @@
   h1 {
     margin: var(--default-margin);
   }
+
+  a.main-link {
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .content-container {
