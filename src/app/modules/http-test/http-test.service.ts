@@ -1,46 +1,82 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Post } from "src/app/modules/fundamentals/models/post";
+import { catchError, Observable, tap, throwError } from "rxjs";
+import { Movie } from "./models/movie";
 
 @Injectable()
 export class HttpTestService {
 
-  private url: string = 'https://jsonplaceholder.typicode.com/posts';
+  private url: string = 'http://localhost:3000/movies';
 
   constructor(private http: HttpClient) {
   }
 
-  getPostsWithError(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.url + '/asd');
+  getMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.url)
+      .pipe(tap(console.log));
   }
 
-  getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.url);
+  getMoviesResponse(): Observable<HttpResponse<Movie[]>> {
+    return this.http.get<HttpResponse<Movie[]>>(this.url, { observe: 'response' })
+      .pipe(tap(console.log));
   }
 
-  getPost(id: number): Observable<Post> {
-    return this.http.get<Post>(this.url + '/' + id);
+  postMovie(movie: Movie): Observable<Movie> {
+    return this.http.post(this.url, movie)
+      .pipe(tap(console.log));
   }
 
-  getPostsByUser(userId: number): Observable<Post[]> {
-    const params: HttpParams = new HttpParams().set('userId', userId);
-    return this.http.get<Post[]>(this.url, { params: params });
+  putMovie(movie: Movie): Observable<Movie> {
+    return this.http.put(this.url + '/' + movie.id, movie)
+      .pipe(tap(console.log));
   }
 
-  addPost(post: Post): Observable<Post> {
-    return this.http.post<Post>(this.url, post);
+  patchMovie(movie: Partial<Movie>): Observable<Movie> {
+    return this.http.patch(this.url + '/' + movie.id, movie)
+      .pipe(tap(console.log));
+  }
+  
+  deleteMovie(id: string): Observable<{}> {
+    return this.http.delete(this.url + '/' + id)
+      .pipe(tap(console.log));
   }
 
-  updatePost(post: Post): Observable<Post> {
-    return this.http.put<Post>(this.url + '/' + post.id, post);
+  makeError(): Observable<Movie> {
+    return this.http.delete(this.url + '/asdfghh')
+      .pipe(tap(console.log), catchError(this.handleError));
   }
 
-  deletePost(id: number): Observable<Post> {
-    return this.http.delete<Post>(this.url + '/' + id);
+  useHeaders(): Observable<HttpResponse<Movie[]>> {
+    const headers = new HttpHeaders({
+      Authorizations: 'my_token',
+      'Content-Type': 'application/json',
+      'X-Custom-Header': 'test'
+    });
+
+    return this.http.get<Movie[]>(this.url, { observe: 'response', headers: headers })
+      .pipe(
+        tap((x: HttpResponse<Movie[]>) => {
+          console.log(x.headers.keys());
+          console.log(x.headers.get('Content-Type'))
+        }));
   }
 
-  changePost(post: Post): Observable<Post> {
-    return this.http.patch<Post>(this.url + '/' + post.id, post);
+  useParams(): Observable<Movie[]> {
+    const params = new HttpParams()
+      .set('_sort', 'title')
+      .set('_order', 'desc');
+
+    return this.http.get<Movie[]>(this.url, { params: params })
+      .pipe(tap(console.log));
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error(
+      `Name: ${error.name} \n` +
+      `Message: ${error.message} \n` +
+      `Returned code: ${error.status}`
+    );
+    
+    return throwError(() => new Error('Something bad happened; please try again later'));
   }
 }

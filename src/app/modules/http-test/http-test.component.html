@@ -1,12 +1,11 @@
-<button (click)="getPosts()">getPosts</button>
-<button (click)="getPost()">getPost</button>
-<button (click)="getPostByUser()">getPostByUser</button>
-<button (click)="addPost()">addPost</button>
-<button (click)="updatePost()">updatePost</button>
-<button (click)="deletePost()">deletePost</button>
-<button (click)="changePost()">changePost</button>
-<button (click)="getPostsWithErrors()">getPostsWithErrors</button>
+<button class="http-button" (click)="getMovies()">Get movies</button>
+<button class="http-button" (click)="getMoviesResponse()">Get movies response</button>
+<button class="http-button" (click)="postMovie()">Post movie</button>
+<button class="http-button" (click)="putMovie()">Put movie</button>
+<button class="http-button" (click)="patchMovie()">Patch movie</button>
+<button class="http-button" (click)="deleteMovie()">Delete movie</button>
+<button class="http-button" (click)="makeError()">Make error</button>
+<button class="http-button" (click)="useHeaders()">Use headers</button>
+<button class="http-button" (click)="useParams()">Use params</button>
 
-<div *ngFor="let p of httpResult$ | async">
-  {{ p.title }}
-</div>
+<pre class="log-container">{{ data | json }}</pre>

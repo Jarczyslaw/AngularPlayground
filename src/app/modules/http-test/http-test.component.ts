@@ -1,9 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { retry } from 'rxjs/operators';
-import { Post } from 'src/app/modules/fundamentals/models/post';
 import { HttpTestService } from './http-test.service';
+import { Movie } from './models/movie';
 
 @Component({
   selector: 'app-http-test',
@@ -13,82 +13,84 @@ import { HttpTestService } from './http-test.service';
     HttpTestService
   ]
 })
-export class HttpTestComponent implements OnInit {
+export class HttpTestComponent {
 
-  httpResult$: Observable<Post[]> = of([]);
+  data: any = '';
 
   constructor(private httpTestService: HttpTestService) { }
 
-  ngOnInit(): void {
+  getMovies(): void {
+    this.httpTestService.getMovies()
+      .subscribe(x => this.data = x);
   }
 
-  getPosts(): void {
-    this.httpResult$ = this.httpTestService.getPosts();
-
-    this.httpTestService.getPosts().subscribe((x: Post[]) => {
-      console.log(x);
-    });
+  getMoviesResponse(): void {
+    this.httpTestService.getMoviesResponse()
+      .subscribe(x => this.data = x);
   }
 
-  getPostsWithErrors(): void {
-    this.httpTestService.getPostsWithError() 
-      .pipe(retry(3))
-      .subscribe((x: Post[]) => {
-        console.log(x);
-      },
-      (error: HttpErrorResponse) => console.log(error.status));
+  postMovie(): void {
+    const movie: Movie = {
+      country: 'Poland',
+      director: 'Marek Brodzki',
+      category: 'Fantasy',
+      plot: 'Zabójca potworów musi wybrać mniejsze zło',
+      poster: null,
+      year: '2001',
+      title: 'Wiedźmin',
+      imdbRating: '10.0'
+    };
+
+    this.httpTestService.postMovie(movie)
+      .subscribe(x => this.data = x);
   }
 
-  getPost(): void {
-    this.httpTestService.getPost(2).subscribe((x: Post) => {
-      console.log(x);
-    });
+  putMovie(): void {
+    const movie: Movie = {
+      id: '53',
+      country: 'Poland',
+      director: 'Marek Brodzki',
+      category: 'Fantasy',
+      plot: 'Zabójca potworów musi wybrać mniejsze zło',
+      poster: null,
+      year: '2001',
+      title: 'Wiedźmin 2',
+      imdbRating: '10.0'
+    };
+
+    this.httpTestService.putMovie(movie)
+      .subscribe(x => this.data = x);
   }
 
-  getPostByUser(): void {
-     this.httpTestService.getPostsByUser(2).subscribe((x: Post[]) => {
-      console.log(x);
-    });
+  patchMovie(): void {
+    const movie: Partial<Movie> = {
+      id: '53',
+      plot: 'Geralt szuka Ciri'
+    };
+
+    this.httpTestService.patchMovie(movie)
+      .subscribe(x => this.data = x);
   }
 
-  addPost(): void {
-    const post: Post = {
-      userId: 1,
-      title: 'My first post',
-      body: 'First post about Angular'
-    }
-
-    this.httpTestService.addPost(post).subscribe((x: Post) => {
-      console.log(x);
-    });
+  deleteMovie(): void { 
+    this.httpTestService.deleteMovie('53')
+      .subscribe(x => this.data = x);
   }
 
-  updatePost(): void {
-    const post: Post = {
-      id: 1,
-      title: 'My first post',
-      body: 'First post about Angular'
-    }
-
-    this.httpTestService.updatePost(post).subscribe((x: Post) => {
-      console.log(x);
-    });
+  makeError(): void {
+    this.httpTestService.makeError()
+      .subscribe({ 
+        next: x => this.data = x,
+        error: (x: Error) => this.data = x.message});
   }
 
-  deletePost(): void {
-    this.httpTestService.deletePost(2).subscribe((x: Post) => {
-      console.log(x);
-    });
+  useHeaders(): void {
+    this.httpTestService.useHeaders()
+      .subscribe(x => this.data = x.headers.keys().join(', '));
   }
 
-  changePost(): void {
-    const post: Post = {
-      id: 1,
-      title: 'My first post',
-    }
-
-    this.httpTestService.changePost(post).subscribe((x: Post) => {
-      console.log(x);
-    });
+  useParams(): void {
+    this.httpTestService.useParams()
+      .subscribe(x => this.data = x);
   }
 }
