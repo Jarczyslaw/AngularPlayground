@@ -39,6 +39,12 @@
     </li>
 
     <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#forms" type="button" role="tab" aria-controls="forms" aria-selected="true">
+        Template driven forms
+      </button>
+    </li>
+
+    <li class="nav-item" role="presentation">
       <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#misc" type="button" role="tab" aria-controls="misc" aria-selected="false">
         Misc
       </button>
@@ -68,6 +74,10 @@
 
     <div class="tab-pane fade show active content-container" id="routing" role="tabpanel" aria-labelledby="profile-tab" tabindex="5">
       <app-routing-test></app-routing-test>
+    </div>
+
+    <div class="tab-pane fade content-container" id="forms" role="tabpanel" aria-labelledby="profile-tab" tabindex="5">
+      <app-template-driven-forms></app-template-driven-forms>
     </div>
 
     <div class="tab-pane fade content-container" id="misc" role="tabpanel" aria-labelledby="profile-tab" tabindex="6">

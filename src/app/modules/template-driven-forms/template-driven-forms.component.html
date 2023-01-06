@@ -1,0 +1,27 @@
+<form #movieForm="ngForm" (ngSubmit)="send()">
+  <input required placeholder="Title" 
+    type="text" 
+    [(ngModel)]="model.title"
+    name="title" 
+    minlength="2"
+    #title="ngModel" /><br />
+
+    <ng-container *ngIf="title.invalid && title.touched">
+      <div *ngIf="title.errors?.required" class="alert alert-danger" role="alert">
+        Field required
+      </div>
+
+      <div *ngIf="title.errors?.minlength" class="alert alert-danger" role="alert">
+        Text is too short
+      </div>
+    </ng-container>
+
+  <select required [(ngModel)]="model.year" name="year">
+    <option *ngFor="let year of years" [ngValue]="year">{{ year }}</option>
+  </select><br />
+
+  <button type="submit" [disabled]="movieForm.invalid">Send</button><br /><br />
+
+  <button type="reset">Reset</button><br />
+  <button type="button" (click)="logNgForm(movieForm)">Log ngForm object</button>
+</form>

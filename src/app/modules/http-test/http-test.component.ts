@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { retry } from 'rxjs/operators';
 import { HttpTestService } from './http-test.service';
-import { Movie } from './models/movie';
+import { Movie } from '../shared/models/movie';
 
 @Component({
   selector: 'app-http-test',

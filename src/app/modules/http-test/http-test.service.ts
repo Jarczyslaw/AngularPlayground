@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { catchError, Observable, tap, throwError } from "rxjs";
-import { Movie } from "./models/movie";
+import { Movie } from "../shared/models/movie";
 
 @Injectable()
 export class HttpTestService {

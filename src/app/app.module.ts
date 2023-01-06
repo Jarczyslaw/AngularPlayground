@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapComponentsModule } from './modules/bootstrap-components/bootstrap-components.module';
 import { RoutingTestModule } from './modules/routing-test/routing-test.module';
 import { AppRoutingModule } from './app-routing.module';
+import { TemplateDrivenFormsModule } from './modules/template-driven-forms/template-driven-forms.module';
 
 registerLocaleData(localePl);
 registerLocaleData(localeBn);
@@ -38,7 +39,8 @@ registerLocaleData(localeBn);
     NgbModule,
     BootstrapComponentsModule,
     RoutingTestModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TemplateDrivenFormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pl-PL' }
