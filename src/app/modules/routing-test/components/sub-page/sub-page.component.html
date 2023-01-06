@@ -2,6 +2,7 @@
 <a routerLink="/sub" routerLinkActive="red">Active link page</a><br />
 <strong>Parameter value: </strong>{{ paramValue }}<br />
 <strong>Parameter value: </strong>{{ paramValueFromSnapshot }}<br />
+<strong>queryParam value: </strong> {{ queryParam }}<br />
 <a [routerLink]="['/sub', 'new value']">Open the same page with new param value</a><br />
 <button (click)="goToMainPage()">Go to main page</button><br />
 <button (click)="goBack()">Go back</button>

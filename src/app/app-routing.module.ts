@@ -10,7 +10,30 @@ const ROUTES: Routes = [
   { path: 'sub', component: SubPageComponent },
   { path: 'sub/:id', component: SubPageComponent },
   { path: '**', component: PageNotFoundComponent },
-]
+];
+
+/*
+const ROUTES: Routes = [
+  { 
+    path: '',
+    canActivate: [Guards],
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./app.module').then(x => x.AppModule),
+        data: {
+          value: 'value'
+        }
+      },
+      {
+        path: 'details',
+        loadChildren: () => import('./app.details.module').then(x => x.AppDetailsModule),
+        outlet: 'aux'
+      },
+    ]
+  }
+];
+*/
 
 @NgModule({
   imports: [RouterModule.forRoot(ROUTES)],

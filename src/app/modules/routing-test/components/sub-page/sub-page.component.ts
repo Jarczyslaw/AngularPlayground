@@ -11,6 +11,7 @@ export class SubPageComponent implements OnInit {
 
   paramValue: string = '';
   paramValueFromSnapshot: string = '';
+  queryParam: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +23,9 @@ export class SubPageComponent implements OnInit {
       .subscribe(x => this.paramValue = x.get('id') ?? '');
 
     this.paramValueFromSnapshot = this.route.snapshot.paramMap.get('id') ?? '';
+
+    this.route.queryParamMap
+      .subscribe(x => this.queryParam = x.get('queryParam') ?? '');
   }
 
   goToMainPage(): void {
